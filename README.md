@@ -79,5 +79,6 @@ kubectl apply -f k8s/deployment_1.yml
 Next, we can deploy the web app with an OAuth reverse proxy in front of it with [k8s/deployment_2.yml](./k8s/deployment_2.yml):
 
 ```
+kubectl apply -f k8s/whitelist.yml # this is a whitelist of all the email addresses you want to allow to access your app.
 kubectl apply -f k8s/deployment_2.yml
 ```
