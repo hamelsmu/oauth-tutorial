@@ -2,6 +2,10 @@
 
 We will use [Oauth2 Proxy](https://oauth2-proxy.github.io/oauth2-proxy/docs/configuration/overview) to secure a static site.  This is a minimal example.
 
+## Demo
+
+See [https://hamel.page](https://hamel.page)
+
 
 ## Pre-requisites
 
