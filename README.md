@@ -51,6 +51,7 @@ Create a file named `oauth.env` with the following contents:
 OAUTH_CLIENT_ID=your-client-id # from GitHub
 OAUTH_CLIENT_SECRET=your-client-secret # from GitHub
 OAUTH2_PROXY_COOKIE_SECRET=your-cookie-secret # you generate this locally, see below.
+OAUTH2_PROXY_SKIP_PROVIDER_BUTTON=true
 ```
 
 You can generate the `OAUTH2_PROXY_COOKIE_SECRET` by running this:

@@ -84,11 +84,26 @@ spec:
         envFrom:
         - configMapRef:
             name: oauth-env-file
-        args: ["--provider", "github", "--reverse-proxy", "true", "--upstream", 
-              "http://hamelapp:8083", "--email-domain", "*", "--http-address=0.0.0.0:4180",
-              "--https-address=0.0.0.0:4443", "--scope", "user:email"]
+        args: ["--provider", "github", 
+               "--reverse-proxy", "true", 
+               "--upstream",  "http://hamelapp:8083", 
+               "--http-address=0.0.0.0:4180",
+               "--https-address=0.0.0.0:4443", 
+               "--scope", "user:email", 
+               "--cookie-expire", "0h0m30s", 
+               "--session-cookie-minimal", "true", 
+               "--skip-provider-button", "true",
+               "--authenticated-emails-file", "/app/emails/email_list.txt"]
         ports:
         - containerPort: 4180 # this is port this container serves on by default
+        volumeMounts:
+          - name: emails
+            mountPath: "/app/emails"
+            readOnly: true
+      volumes:
+        - name: emails
+          configMap:
+            name: email-whitelist
 ---
 ## Sets up networking for the proxy
 apiVersion: v1
