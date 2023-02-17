@@ -1,0 +1,104 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello
+  labels:
+    app: hello
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hello
+  template:
+    metadata:
+      labels:
+        app: hello
+    spec:
+      containers:
+      - name: website
+        image: docker.io/hamelsmu/hello-web
+        ports:
+        - containerPort: 8083
+---
+## Sets up networking for the app
+apiVersion: v1
+kind: Service
+metadata:
+  name: hamelapp
+spec:
+  selector:
+    app: hello
+  ports:
+    - port: 8083
+      targetPort: 8083
+---
+# This is the managed certificate for https
+apiVersion: networking.gke.io/v1
+kind: ManagedCertificate
+metadata:
+  name: managed-cert
+spec:
+  domains:
+    - hamel.page
+---
+# boilerplate from https://cloud.google.com/kubernetes-engine/docs/how-to/managed-certs
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: managed-cert-ingress
+  annotations:
+    kubernetes.io/ingress.global-static-ip-name: oauth-ip-address
+    networking.gke.io/managed-certificates: managed-cert
+    kubernetes.io/ingress.class: "gce"
+spec:
+  defaultBackend:
+    service:
+      name: oauth2-proxy
+      port:
+        name: oauth2-proxy
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: oauth2-proxy
+  labels:
+    app: oauth2-proxy
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: oauth2-proxy
+  template:
+    metadata:
+      labels:
+        app: oauth2-proxy
+    spec:
+      containers:
+      - name: oauth2-proxy
+        image: quay.io/oauth2-proxy/oauth2-proxy #:v7.2.0
+        readinessProbe:        # Probes are set at the container level.
+          httpGet:
+            path: /ping     # This is an HTTP GET, using the health URL.
+            port: 4180       
+          periodSeconds: 5     # The probe fires every five seconds.
+        envFrom:
+        - configMapRef:
+            name: oauth-env-file
+        args: ["--provider", "github", "--reverse-proxy", "true", "--upstream", 
+              "http://hamelapp:8083", "--email-domain", "*", "--http-address=0.0.0.0:4180",
+              "--https-address=0.0.0.0:4443", "--scope", "user:email"]
+        ports:
+        - containerPort: 4180 # this is port this container serves on by default
+---
+## Sets up networking for the proxy
+apiVersion: v1
+kind: Service
+metadata:
+  name: oauth2-proxy
+spec:
+  selector:
+    app: oauth2-proxy
+  ports:
+    - port: 4180
+      name: oauth2-proxy
+      targetPort: 4180
