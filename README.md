@@ -1,6 +1,8 @@
 # Secure Your Static Sites Behind Oauth
 
-We will use [Oauth2 Proxy](https://oauth2-proxy.github.io/oauth2-proxy/docs/configuration/overview) to secure a static site.  This is a minimal example.
+This repo shows how to set up [Oauth2 Proxy](https://oauth2-proxy.github.io/oauth2-proxy/docs/configuration/overview)](https://oauth2-proxy.github.io/oauth2-proxy/docs/configuration/overview) to secure a static site on Kubernetes.  
+
+**For a simple example you can test locally, see [Minimal Oauth](./local/README.md).**  I suggest starting here if you aren't familiar with Kubernetes or don't care about it.
 
 ## Demo
 
