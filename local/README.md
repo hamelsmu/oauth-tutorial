@@ -13,7 +13,7 @@ First, install [Quarto](https://quarto.org/), and run the following command:
 quarto render
 ```
 
-This will create a static site in the `_site/` folder.
+This will create the directory `_site/` with a static site in it (HTML, CSS, etc).
 
 ### 2. Create an OAuth App
 
