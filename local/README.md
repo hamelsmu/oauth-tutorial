@@ -19,7 +19,7 @@ This will create a static site in the `_site/` folder.
 
 Create an [OAuth App](https://github.com/settings/applications/new), but fill out the fields like this for local testing:
 
-![](local_app.png)
+> ![](local_app.png)
 
 Make sure you store the `Client ID` and `Client Secret` into the enviornment variables `OAUTH2_PROXY_CLIENT_ID` and `OAUTH2_PROXY_COOKIE_SECRET`, respectively.
 
