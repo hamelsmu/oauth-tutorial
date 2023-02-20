@@ -6,7 +6,7 @@
 
 2. A custom domain that you don't mind experimenting with.  If you don't have one, you can [buy one here](https://domains.google.com). In this example, I'm using the custom domain `hamel.rsvp`.
 
-## Render
+## Render (Free)
 
 [Render](https://render.com/) is a hosting provider that has a free tier that will work for our purposes.  We just have to learn a little bit about their YAML, but if you did the [first tutorial](../local/README.md), it will be approachable.
 
@@ -20,7 +20,7 @@ Render also has [Oauth2 Proxy tutorial](https://render.com/blog/password-protect
 
 2. [fork this repo](https://github.com/hamelsmu/oauth-render-quarto/tree/main).
 
-3. **Optional:** Change the content of your site by editing one of the `.qmd` files, then run `quarto render` to re-generate the content into the `_site/` folder.  _The `_site` folder is checked into this repo, so this is optional._
+3. **Optional:** Change the content of your site by editing one of the `.qmd` files, then run `quarto render` to re-generate the content into the `_site/` folder.  **Make sure you check-in any changes, including the `_site` folder into your repo.**
 
 4. [Click this link to deploy the app](https://dashboard.render.com/blueprints), and grant Render access to the repo you just forked.  Next, fill in values for the `OAUTH2_PROXY_CLIENT_ID` and `OAUTH2_PROXY_CLIENT_SECRET`:
 
@@ -30,9 +30,11 @@ Render also has [Oauth2 Proxy tutorial](https://render.com/blog/password-protect
 
 ### Testing Your Site
 
-Anytime your push a change to your repo, your site will rebuild.  Try misspelling your email in the `email_list.txt` file and see what happens, and try changing it back.  Builds are usually quite fast and take under a minute.
+Anytime your push a change to your repo, your site will rebuild.  Try misspelling your email in the `email_list.txt` file and see what happens, then try changing it back.  Builds are usually fast and take under a minute.
 
 ### How does it work?
 
-See the [repo's README](https://github.com/hamelsmu/oauth-render-quarto)
+See the [repo's README](https://github.com/hamelsmu/oauth-render-quarto).
+
+
 
