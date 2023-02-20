@@ -99,8 +99,7 @@ Now that you have a minimal idea of how this works locally, you can proceed to h
 
 In that lesson, we will show you how to:
 
-- Use a hosting provider to deploy your secure static site.
-    - You will learn about a few alternatives (one of them for free).
+- Use a hosting provider to deploy your secure static site, **for free**.
 - Enable `https` and setup a custom domain.
 
 # Is this only for static sites?
