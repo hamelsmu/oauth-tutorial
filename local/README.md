@@ -38,8 +38,8 @@ docker run -v $(PWD)/_site:/app \               # the directory with the static 
            -p 4180:4180 -p 4443:4443 \          # bind the ports
            quay.io/oauth2-proxy/oauth2-proxy \  # the official docker image for Oauth2 proxy
            --provider github \                  # use GitHub as the Oauth provider
-           --upstream "file:///app/#/" \          # The location of the static site files
-           --http-address=:4180 \               # Bind the 4180 port on all interfaces which is necessary for Docker (we aren't using https for local testing).
+           --upstream "file:///app/#/" \        # The location of the static site files
+           --http-address=":4180" \        # Bind the 4180 port on all interfaces which is necessary for Docker (we aren't using https for local testing).
            --authenticated-emails-file "/site_config/email_list.txt" \  # This is the email whitelist
            --scope user:email \                 # This tells the Oauth provider, GitHub, to share your email with the Oauth proxy
            --cookie-expire 0h0m30s \            # Optional: This helps the cookie expire more quickly which could be helpful for security
