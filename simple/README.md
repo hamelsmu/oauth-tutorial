@@ -26,7 +26,7 @@ Render also has [Oauth2 Proxy tutorial](https://render.com/blog/password-protect
 
 ![](render_blueprint.png)
 
-5. Set up your custom domain by navigating to [your dashboard](https://dashboard.render.com/) and clicking on this project, which is named `oauth2-proxy-render` (unless you changed it). On the left hand side click `Settings`.  Under `Settings`, scroll down to the section named `Custom Domains`.  Add your domain there and follow the instructions.  Render will take care of provisioning an [SSL certificate](https://hamel.dev/notes/k8s/25-Ingress.html#how-does-https-work) to enable `https` on your domain for you.
+5. Set up your custom domain by navigating to [your dashboard](https://dashboard.render.com/) and clicking on this project, which is named `oauth2-proxy-render` (unless you changed it). On the left hand side click `Settings`.  Under `Settings`, scroll down to the section named `Custom Domains`.  Add your domain there and follow the instructions.  Render will take care of provisioning an SSL certificate to enable `https` on your domain for you.
 
 ### Testing Your Site
 
