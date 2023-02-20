@@ -1,7 +1,8 @@
-# Minimal OAuth
+# Minimal OAuth Locally
 
-How to use the [Oauth2 Proxy](https://oauth2-proxy.github.io/oauth2-proxy/docs/) to serve a static site with minimal infra and dependencies on a single VM.  In this case, I'm going to serve a simple [Quarto](https://quarto.org/) site (my favorite static site generator).
+We will use the Oauth2 Proxy to make a static site private with minimal dependencies.  In this case, I'm going to serve a [Quarto](https://quarto.org/) site (my favorite static site generator), and secure it with an email whitelist (a [text file with emails](./emails/email_list.txt)). There are many other authorization schemes in addition to an email whitelist, [which you can read about here](https://oauth2-proxy.github.io/oauth2-proxy/docs/configuration/overview).
 
+[This section](../README.md#how-does-this-work) describes how OAuth works in the context of this example.
 
 ## Steps
 
@@ -41,11 +42,11 @@ docker run -v $(PWD)/_site:/app \               # the directory with the static 
            --http-address=:4180 \               # Bind the 4180 port on all interfaces (necessary for Docker)
            --https-address=:4443 \              # Bind the 4443 port for https traffic (we won't be using this when testing locally)
            --authenticated-emails-file /site_config/email_list.txt \  # This is the email whitelist
-           --scope user:email \                 # This tells the Oauth provider, which is GitHub to share your email with your app
+           --scope user:email \                 # This tells the Oauth provider, GitHub, to share your email with the Oauth proxy
            --cookie-expire 0h0m30s \            # Optional: This helps the cookie expire more quickly which could be helpful for security
-           --session-cookie-minimal true \      # Optional: don't store uncessary info in cookie since we aren't using that
+           --session-cookie-minimal true \      # Optional: don't store uncessary info in cookie since we aren't using features that require it
            --skip-provider-button true \        # Don't need a seperate "login with GitHub" screen
-           --cookie-secret $OAUTH2_PROXY_COOKIE_SECRET \  # This is the secret you pass, see https://oauth2-proxy.github.io/oauth2-proxy/docs/configuration/overview
+           --cookie-secret $OAUTH2_PROXY_COOKIE_SECRET \  # This is the secret you generate, see https://oauth2-proxy.github.io/oauth2-proxy/docs/configuration/overview
            --client-id $OAUTH2_PROXY_CLIENT_ID \          # This is the ID of your Oauth App from GitHub
            --client-secret $OAUTH2_PROXY_CLIENT_SECRET \  # This is the secret of your Oauth App from GitHub
            # THE BELOW FLAGS ARE ONLY FOR LOCAL TESTING \
@@ -63,15 +64,18 @@ Note how the OAuth2 Proxy doubles as a webserver also!  That is what `--upstream
 There is a file named [emails/email_list.txt](./emails/email_list.txt) that contains a list of the email identities that are allowed to view your site.  Try misspelling your email on purpose and see what happens when you do a hard refresh after a few seconds.  Try changing it back.
 
 
-## Next Steps
+# Next Lesson: Deploy It!
 
-Now that you have a minimal idea of how this works locally, you can proceed to host your static site on a VM.  This is great for a static site that you want to be private (private documentation, a paid course you want to offer, etc.).  
+Now that you have a minimal idea of how this works locally, you can proceed to host your static site on a VM or other hosted solution.  
 
-### Kubernetes
+**:point_right: [See Lesson 2: Serving Your Site](../simple/README.md). :point_left:**
 
-I show how to do this same thing on Kubernetes [here](../README.md).  That example:
+In that lesson, we will show you how to:
 
-- Deploys a static site on Kubernetes behind a load balancer, with the Oauth proxy
-- Sets up automated SSL for https with Google Managed Certificates
+- Use a hosting provider to deploy your secure static site.
+    - You will learn about a few alternatives (one of them for free).
+- Enable `https` and setup a custom domain.
 
-Deploying this on Kubernetes is much more complicated, maybe the most complicated way to deploy this (but is something I wanted to play with).  Now that you understand the basics of how this works from this local example, you can deploy this however you want. 
+# Is this only for static sites?
+
+No! You can put applications behind the proxy, like a dashboard.  Instead of passing `file://...` to the `--upstream` flag, you pass a URL, like `http://your.internal.app`.  You can see an [example of this on Kuberenetes here](https://github.com/hamelsmu/k8s-oauth/blob/main/gke_k8s/k8s/deployment_2.yml#L89) and you can read more about this in [the docs on configuring the upstream](https://oauth2-proxy.github.io/oauth2-proxy/docs/configuration/overview#upstreams-configuration).
