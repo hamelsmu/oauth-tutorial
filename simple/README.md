@@ -37,10 +37,9 @@ Anytime your push a change to your repo, your site will rebuild.  Try misspellin
 See the [repo's README](https://github.com/hamelsmu/oauth-render-quarto).
 
 
-
 ## Next Steps
 
-As an advanced exercise, I show how to do this same thing on Kubernetes [here](../gke_k8s/README.md). That example:
+As an advanced exercise, I show how to do this [same thing on Kubernetes](../gke_k8s/README.md). That example:
 
 - Deploys a static site on Kubernetes behind a load balancer, with the OAuth proxy
 - Sets up automated SSL for `https` with Google Managed Certificates
