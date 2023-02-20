@@ -1,5 +1,11 @@
 # Serving Your Site
 
+## Prerequisites
+
+1. You have taken the [first tutorial](../local/README.md).
+
+2. A custom domain that you don't mind experimenting with.  If you don't have one, you can [buy one here](https://domains.google.com). In this example, I'm using the custom domain `hamel.rsvp`.
+
 ## Render
 
 [Render](https://render.com/) is a hosting provider that has a free tier that will work for our purposes.  We just have to learn a little bit about their YAML, but if you did the [first tutorial](../local/README.md), it will be approachable.
@@ -8,16 +14,25 @@ Render also has [Oauth2 Proxy tutorial](https://render.com/blog/password-protect
 
 ### Setup
 
-1. This will be more fun if you have a custom domain.  If you don't have one you can [buy one here](https://domains.google.com). In this example, I'm using the custom domain `hamel.rsvp`.
-
 1. Create another OAuth application and save the `Client ID` and `Client Secret` as you did in the [minimal example](../local/README.md).  You can fill it out like this:
 
-![](render/app_setup.png)
+![](app_setup.png)
 
-2. [fork this repo](https://github.com/hamelsmu/oauth-tutorial/fork).
+2. [fork this repo](https://github.com/hamelsmu/oauth-render-quarto/tree/main).
 
-3. Optional: Navigate to the [simple/render/](./render/) folder in this repo and run `quarto render` to generate the content of the static site into the `_site/` folder.
+3. **Optional:** Change the content of your site by editing one of the `.qmd` files, then run `quarto render` to re-generate the content into the `_site/` folder.  _The `_site` folder is checked into this repo, so this is optional._
 
-4. Finally, [click this link to deploy the app](https://dashboard.render.com/blueprints), and grant Render access to the repo you just forked.  Next, fill in values for the `OAUTH2_PROXY_CLIENT_ID` and `OAUTH2_PROXY_CLIENT_SECRET`:
+4. [Click this link to deploy the app](https://dashboard.render.com/blueprints), and grant Render access to the repo you just forked.  Next, fill in values for the `OAUTH2_PROXY_CLIENT_ID` and `OAUTH2_PROXY_CLIENT_SECRET`:
 
-![](render/render_blueprint.png)
+![](render_blueprint.png)
+
+5. Set up your custom domain by navigating to [your dashboard](https://dashboard.render.com/) and clicking on this project, which is named `oauth2-proxy-render` (unless you changed it). On the left hand side click `Settings`.  Under `Settings`, scroll down to the section named `Custom Domains`.  Add your domain there and follow the instructions.  Render will take care of provisioning an [SSL certificate](https://hamel.dev/notes/k8s/25-Ingress.html#how-does-https-work) to enable `https` on your domain for you.
+
+### Testing Your Site
+
+Anytime your push a change to your repo, your site will rebuild.  Try misspelling your email in the `email_list.txt` file and see what happens, and try changing it back.  Builds are usually quite fast and take under a minute.
+
+### How does it work?
+
+See the [repo's README](https://github.com/hamelsmu/oauth-render-quarto)
+
