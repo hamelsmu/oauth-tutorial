@@ -8,9 +8,12 @@ Render also has [Oauth2 Proxy tutorial](https://render.com/blog/password-protect
 
 ### Setup
 
-First, [fork this repo](https://github.com/hamelsmu/oauth-tutorial/fork).
+1. Create another OAuth application and save the `Client ID` and `Client Secret` as you did in the [minimal example](../local/README.md).
 
-Then click on [this link to start a Web Service](https://dashboard.render.com/blueprints), and grant Render access to the repo you just forked.  In the next screen, select the free tier and select these options:
+2. [fork this repo](https://github.com/hamelsmu/oauth-tutorial/fork).
 
-![](render/render_setup.png)
+3. Optional: Navigate to the [simple/render/](./render/) folder in this repo and run `quarto render` to generate the content of the static site into the `_site/` folder.
 
+4. Finally, [click this link to deploy the app](https://dashboard.render.com/blueprints), and grant Render access to the repo you just forked.  Next, fill in values for the `OAUTH2_PROXY_CLIENT_ID` and `OAUTH2_PROXY_CLIENT_SECRET`:
+
+![](render/render_blueprint.png)
