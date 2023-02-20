@@ -39,8 +39,7 @@ docker run -v $(PWD)/_site:/app \               # the directory with the static 
            quay.io/oauth2-proxy/oauth2-proxy \  # the official docker image for Oauth2 proxy
            --provider github \                  # use GitHub as the Oauth provider
            --upstream file:///app/#/ \          # The location of the static site files
-           --http-address=:4180 \               # Bind the 4180 port on all interfaces (necessary for Docker)
-           --https-address=:4443 \              # Bind the 4443 port for https traffic (we won't be using this when testing locally)
+           --http-address=:4180 \               # Bind the 4180 port on all interfaces which is necessary for Docker (we aren't using https for local testing).
            --authenticated-emails-file /site_config/email_list.txt \  # This is the email whitelist
            --scope user:email \                 # This tells the Oauth provider, GitHub, to share your email with the Oauth proxy
            --cookie-expire 0h0m30s \            # Optional: This helps the cookie expire more quickly which could be helpful for security
@@ -49,15 +48,16 @@ docker run -v $(PWD)/_site:/app \               # the directory with the static 
            --cookie-secret $OAUTH2_PROXY_COOKIE_SECRET \  # This is the secret you generate, see https://oauth2-proxy.github.io/oauth2-proxy/docs/configuration/overview
            --client-id $OAUTH2_PROXY_CLIENT_ID \          # This is the ID of your Oauth App from GitHub
            --client-secret $OAUTH2_PROXY_CLIENT_SECRET \  # This is the secret of your Oauth App from GitHub
+           --cookie-csrf-per-request=true \                          # allows for parallel requests
            # THE BELOW FLAGS ARE ONLY FOR LOCAL TESTING \
            --redirect-url="http://localhost:4180/oauth2/callback" \  # this is necessary for local testing only
            --cookie-secure=false \                                   # this is necessary for local testing only
-           --cookie-csrf-per-request=true \                          # this is necessary for local testing only
            --cookie-csrf-expire=5m                                   # this is necessary for local testing only
 ```
 
-Note how the OAuth2 Proxy doubles as a webserver also!  That is what `--upstream` flag enables.
+Note how the OAuth2 Proxy doubles as a web server also!  That is what `--upstream` flag enables. 
 
+_For performance purposes, you may want to put the proxy behind another webserver like [Caddy](https://caddyserver.com/) or [Nginx](https://www.nginx.com/), but it's not required._
 
 ### 4. Test Security / Access
 
