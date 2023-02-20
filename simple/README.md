@@ -8,7 +8,11 @@ Render also has [Oauth2 Proxy tutorial](https://render.com/blog/password-protect
 
 ### Setup
 
-1. Create another OAuth application and save the `Client ID` and `Client Secret` as you did in the [minimal example](../local/README.md).
+1. This will be more fun if you have a custom domain.  If you don't have one you can [buy one here](https://domains.google.com). In this example, I'm using the custom domain `hamel.rsvp`.
+
+1. Create another OAuth application and save the `Client ID` and `Client Secret` as you did in the [minimal example](../local/README.md).  You can fill it out like this:
+
+![](render/app_setup.png)
 
 2. [fork this repo](https://github.com/hamelsmu/oauth-tutorial/fork).
 
