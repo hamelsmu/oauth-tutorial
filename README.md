@@ -24,7 +24,7 @@ Prerequisites: knowledge of Docker and familiarity with hosting static sites (li
 
 2. **Does GitHub Pages have something like this?**: Only if you [purchase GitHub Enterprise Cloud](https://docs.github.com/en/enterprise-cloud@latest/pages/getting-started-with-github-pages/changing-the-visibility-of-your-github-pages-site) which is absurdly expensive if you want it solely for the purposes of securing a static site (> $100/month for just 5 users!).
 
-3. **Can't you do this with [Netlify](https://www.netlify.com/)?**: To do something similar on Netlify, you have to use [invite only private sites](https://docs.netlify.com/visitor-access/identity/registration-login/#set-registration-preferences) (which is the closest thing to this) which triggers [identity pricing](https://www.netlify.com/pricing/#add-ons-identity), which means that **you need to pay over $99 per month if you have over 5 Active users!** That is ridiculous.
+3. **Can't you do this with [Netlify](https://www.netlify.com/)?**: To do something similar on Netlify, you have to use [invite-only private sites](https://docs.netlify.com/visitor-access/identity/registration-login/#set-registration-preferences)](https://docs.netlify.com/visitor-access/identity/registration-login/#set-registration-preferences) (which is the closest thing to this) which triggers [identity pricing](https://www.netlify.com/pricing/#add-ons-identity), which means that **you need to pay over $99 per month if you have over 5 Active users!** That is ridiculous.
 
 ## How does this work?
 
