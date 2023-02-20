@@ -10,7 +10,7 @@ Render also has [Oauth2 Proxy tutorial](https://render.com/blog/password-protect
 
 First, [fork this repo](https://github.com/hamelsmu/oauth-tutorial/fork).
 
-Then click on [this link to start a Web Service](https://dashboard.render.com/select-repo?type=web), and grant Render access to the repo you just forked.  In the next screen, select the free tier and select these options:
+Then click on [this link to start a Web Service](https://dashboard.render.com/blueprints), and grant Render access to the repo you just forked.  In the next screen, select the free tier and select these options:
 
 ![](render/render_setup.png)
 

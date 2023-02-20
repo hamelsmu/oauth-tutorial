@@ -2,6 +2,7 @@ services:
   - type: web
     name: oauth2-proxy
     env: docker
+    rootDir: simple/render
     envVars:
       - key: OAUTH2_PROXY_CLIENT_ID
         sync: false
