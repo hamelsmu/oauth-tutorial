@@ -33,6 +33,32 @@ Next, generate a cookie secret by running `python -c 'import os,base64; print(ba
 Next, run the following command from this directory:
 
 ```bash
+docker run -v $(PWD)/_site:/app \
+           -v $(PWD)/emails:/site_config \
+           -p 4180:4180 -p 4443:4443 \
+           quay.io/oauth2-proxy/oauth2-proxy \
+           --provider github \
+           --upstream "file:///app/#/" \
+           --http-address=":4180" \
+           --authenticated-emails-file "/site_config/email_list.txt" \
+           --scope user:email \
+           --cookie-expire 0h0m30s \
+           --session-cookie-minimal true \
+           --skip-provider-button true \
+           --cookie-secret $OAUTH2_PROXY_COOKIE_SECRET \
+           --client-id $OAUTH2_PROXY_CLIENT_ID \
+           --client-secret $OAUTH2_PROXY_CLIENT_SECRET \
+           --cookie-csrf-per-request=true \
+           --redirect-url="http://localhost:4180/oauth2/callback" \
+           --cookie-secure=false \
+           --cookie-csrf-expire=5m
+```
+
+These flags are annotated below (but you have to copy and paste the above version for it to work.)
+
+```bash
+# COPY & PASTE THE ABOVE VERSION, THIS IS JUST AN EXPLANATION
+
 docker run -v $(PWD)/_site:/app \               # the directory with the static site
            -v $(PWD)/emails:/site_config \      # the dirctory with the email list
            -p 4180:4180 -p 4443:4443 \          # bind the ports
