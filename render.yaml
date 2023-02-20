@@ -1,6 +1,7 @@
 services:
   - type: web
     name: oauth2-proxy
+    plan: free
     env: docker
     rootDir: simple/render
     envVars:
