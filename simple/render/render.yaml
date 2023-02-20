@@ -3,8 +3,6 @@ services:
     name: oauth2-proxy
     env: docker
     envVars:
-      - key: OAUTH2_PROXY_PROVIDER
-        sync: false
       - key: OAUTH2_PROXY_CLIENT_ID
         sync: false
       - key: OAUTH2_PROXY_CLIENT_SECRET

@@ -35,7 +35,7 @@ Next, run the following command from this directory:
 ```bash
 docker run -v $(PWD)/_site:/app \
            -v $(PWD)/emails:/site_config \
-           -p 4180:4180 -p 4443:4443 \
+           -p 4180:4180 \
            quay.io/oauth2-proxy/oauth2-proxy \
            --provider github \
            --upstream "file:///app/#/" \
@@ -61,11 +61,11 @@ These flags are annotated below (but you have to copy and paste the above versio
 
 docker run -v $(PWD)/_site:/app \               # the directory with the static site
            -v $(PWD)/emails:/site_config \      # the dirctory with the email list
-           -p 4180:4180 -p 4443:4443 \          # bind the ports
+           -p 4180:4180                         # bind the ports
            quay.io/oauth2-proxy/oauth2-proxy \  # the official docker image for Oauth2 proxy
            --provider github \                  # use GitHub as the Oauth provider
            --upstream "file:///app/#/" \        # The location of the static site files
-           --http-address=":4180" \        # Bind the 4180 port on all interfaces which is necessary for Docker (we aren't using https for local testing).
+           --http-address=":4180" \             # Bind the 4180 port on all interfaces which is necessary for Docker (we aren't using https for local testing).
            --authenticated-emails-file "/site_config/email_list.txt" \  # This is the email whitelist
            --scope user:email \                 # This tells the Oauth provider, GitHub, to share your email with the Oauth proxy
            --cookie-expire 0h0m30s \            # Optional: This helps the cookie expire more quickly which could be helpful for security
@@ -81,14 +81,13 @@ docker run -v $(PWD)/_site:/app \               # the directory with the static 
            --cookie-csrf-expire=5m                                   # this is necessary for local testing only
 ```
 
-Note how the OAuth2 Proxy doubles as a web server also!  That is what `--upstream` flag enables. 
-
-_For performance purposes, you may want to put the proxy behind another webserver like [Caddy](https://caddyserver.com/) or [Nginx](https://www.nginx.com/), but it's not required._
+Note how the OAuth2 Proxy doubles as a web server also!  That is what `--upstream` flag enables.[^1] 
 
 ### 4. Test Security / Access
 
-There is a file named [emails/email_list.txt](./emails/email_list.txt) that contains a list of the email identities that are allowed to view your site.  Try misspelling your email on purpose and see what happens when you do a hard refresh after a few seconds.  Try changing it back.
+Preview your site at [http://localhost:4180](http://localhost:4180).
 
+There is a file named [emails/email_list.txt](./emails/email_list.txt) that contains a list of the email identities that are allowed to view your site.  Try misspelling your email on purpose and see what happens when you do a hard refresh after a few seconds.  Try changing it back.
 
 # Next Lesson: Deploy It!
 
@@ -105,3 +104,6 @@ In that lesson, we will show you how to:
 # Is this only for static sites?
 
 No! You can put applications behind the proxy, like a dashboard.  Instead of passing `file://...` to the `--upstream` flag, you pass a URL, like `http://your.internal.app`.  You can see an [example of this on Kuberenetes here](https://github.com/hamelsmu/k8s-oauth/blob/main/gke_k8s/k8s/deployment_2.yml#L89) and you can read more about this in [the docs on configuring the upstream](https://oauth2-proxy.github.io/oauth2-proxy/docs/configuration/overview#upstreams-configuration).
+
+
+[^1]: For performance purposes, you may want to put the proxy behind another webserver like [Caddy](https://caddyserver.com/) or [Nginx](https://www.nginx.com/), but it's not required in this example.
