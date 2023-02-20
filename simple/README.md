@@ -8,7 +8,7 @@
 
 ## Render (Free)
 
-[Render](https://render.com/) is a hosting provider that has a free tier that will work for our purposes.  We just have to learn a little bit about their YAML, but if you did the [first tutorial](../local/README.md), it will be approachable.
+[Render](https://render.com/) is a hosting serivce that provides a generous free tier.  We just have to learn a little bit about their YAML, but if you did the [first tutorial](../local/README.md), it will be approachable.
 
 Render also has [Oauth2 Proxy tutorial](https://render.com/blog/password-protect-with-oauth2-proxy) which is pretty close to what we want.
 
@@ -38,3 +38,14 @@ See the [repo's README](https://github.com/hamelsmu/oauth-render-quarto).
 
 
 
+## Next Steps
+
+As an advanced exercise, I show how to do this same thing on Kubernetes [here](../gke_k8s/README.md). That example:
+
+- Deploys a static site on Kubernetes behind a load balancer, with the OAuth proxy
+- Sets up automated SSL for `https` with Google Managed Certificates
+- Deploys a separate webserver for the website to make the pattern more generalizable.
+
+Deploying this on Kubernetes is much more complicated, but is something I wanted to play with.
+
+**:point_right: [See Lesson 3: Deploying The OAuth2 Proxy On Kubernetes](../simple/README.md). :point_left:**
