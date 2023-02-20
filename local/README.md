@@ -40,7 +40,7 @@ docker run -v $(PWD)/_site:/app \               # the directory with the static 
            --provider github \                  # use GitHub as the Oauth provider
            --upstream "file:///app/#/" \          # The location of the static site files
            --http-address=:4180 \               # Bind the 4180 port on all interfaces which is necessary for Docker (we aren't using https for local testing).
-           --authenticated-emails-file /site_config/email_list.txt \  # This is the email whitelist
+           --authenticated-emails-file "/site_config/email_list.txt" \  # This is the email whitelist
            --scope user:email \                 # This tells the Oauth provider, GitHub, to share your email with the Oauth proxy
            --cookie-expire 0h0m30s \            # Optional: This helps the cookie expire more quickly which could be helpful for security
            --session-cookie-minimal true \      # Optional: don't store uncessary info in cookie since we aren't using features that require it
