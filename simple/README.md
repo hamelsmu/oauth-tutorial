@@ -12,7 +12,7 @@ We are going to serve a [Quarto](https://quarto.org/) site behind an OAuth proxy
 
 [Render](https://render.com/) is a hosting serivce that provides a generous free tier.  We just have to learn a little bit about their YAML, but if you did the [first tutorial](../local/README.md), it will be approachable.
 
-Render also has [Oauth2 Proxy tutorial](https://render.com/blog/password-protect-with-oauth2-proxy) which is pretty close to what we want.
+Render also has [Oauth2 Proxy tutorial](https://render.com/blog/password-protect-with-oauth2-proxy) which is pretty close to what we want.  We are going to simplify that example considerably, while also getting rid of things that aren't free.
 
 ### Setup
 
