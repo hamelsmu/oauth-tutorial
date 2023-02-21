@@ -1,5 +1,7 @@
 # Serving Your Site
 
+We are going to serve a [Quarto](https://quarto.org/) site behind an OAuth proxy to make it private, as [described here](../README.md).
+
 ## Prerequisites
 
 1. You have taken the [first tutorial](../local/README.md).
