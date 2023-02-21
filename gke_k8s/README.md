@@ -1,6 +1,6 @@
 # OAuth In Kubernetes
 
-This section shows how to set up the [OAuth2 Proxy](https://oauth2-proxy.github.io/oauth2-proxy/docs/configuration/overview)](https://oauth2-proxy.github.io/oauth2-proxy/docs/configuration/overview) on  [GKE](https://cloud.google.com/kubernetes-engine) to secure a website.  The motivation for this is that in many companies and enterprises, serving a site on Kubernetes may be the only option.
+This section shows how to set up the [OAuth2 Proxy](https://oauth2-proxy.github.io/oauth2-proxy/docs/configuration/overview) on  [GKE](https://cloud.google.com/kubernetes-engine) to secure a website.  The motivation for this is that in many companies and enterprises, serving a site on Kubernetes may be the only option.
 
 Unlike previous examples, the static site is served via its own web server rather than directly through the OAuth2 Proxy.  This web server's networking restricts access to be visible only internally within the Kubernetes cluster. The proxy forwards traffic to this web server.  This is a more general pattern in case you want to host other web applications that are not static sites (like dashboards).
 
