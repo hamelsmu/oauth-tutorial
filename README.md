@@ -2,6 +2,8 @@
 
 > Like GitHub Pages, but you choose who can see it without usernames & passwords
 
+## Background
+
 Do you want to serve a static site semi-privately so only specific users can see it?  For example, you may want to host private docs or offer a paid course.  There are many complicated solutions that involve building a login flow and maintaining a database of usernames/passwords.  Thankfully, there is a much easier way with [Oauth2 Proxy](https://oauth2-proxy.github.io/oauth2-proxy/docs/).
 
 Concretely, this tutorial shows how to use the Oauth2 Proxy to make a static site private with minimal dependencies and secure it with an email whitelist (a [text file with emails](./emails/email_list.txt)). There are many other authorization schemes in addition to an email whitelist, [which you can read about here](https://oauth2-proxy.github.io/oauth2-proxy/docs/configuration/overview).
