@@ -32,7 +32,7 @@ Render also has [Oauth2 Proxy tutorial](https://render.com/blog/password-protect
 
 ### Testing Your Site
 
-Anytime your push a change to your repo, your site will rebuild.  Try misspelling your email in the `email_list.txt` file and see what happens, then try changing it back.  Builds are usually fast and take under a minute.
+Anytime your push a change to your repo, your site will rebuild.  Try misspelling your email in the `email_list.txt` file and see what happens, then try changing it back.  **Warning: if you revoke/grant access it takes 2-3 minutes for it to take effect, and you may have to clear your cache - be patient!**
 
 ### How does it work?
 
