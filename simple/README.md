@@ -39,6 +39,14 @@ Anytime your push a change to your repo, your site will rebuild.  Try misspellin
 See the [repo's README](https://github.com/hamelsmu/oauth-render-quarto).
 
 
+### Alternatives to Render
+
+These are some alternatives to Render that work similarly.
+
+- [Fly.io](https://fly.io/).  Doesn't have a free tier, but is anything _really_ free?
+- [Railway](https://railway.app/).  Has a free trial.
+
+
 ## Next Steps
 
 As an advanced exercise, I show how to do this [same thing on Kubernetes](../gke_k8s/README.md). That example:
