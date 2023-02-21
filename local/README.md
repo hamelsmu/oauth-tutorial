@@ -102,11 +102,13 @@ In that lesson, we will show you how to:
 - Use a hosting provider to deploy your secure static site, **for free**.
 - Enable `https` and set up a custom domain.
 
-# Is this only for static sites?
+# Appendix
+
+## Is this only for static sites?
 
 No! You can put applications behind the proxy, like a dashboard.  Instead of passing `file://...` to the `--upstream` flag, you pass a URL, like `http://your.internal.app`.  You can see an [example of this on Kuberenetes here](https://github.com/hamelsmu/k8s-oauth/blob/main/gke_k8s/k8s/deployment_2.yml#L89) and you can read more about this in [the docs on configuring the upstream](https://oauth2-proxy.github.io/oauth2-proxy/docs/configuration/overview#upstreams-configuration).
 
-# How does this work?
+## How does this work?
 
 With regards to security, [OAuth](https://oauth.net/) is often used for **[authentication](https://www.okta.com/identity-101/authentication-vs-authorization/)**[^2], or identifying who you are.  You may have seen sites that have you sign in with GitHub, Google, etc. These [OAuth providers](https://en.wikipedia.org/wiki/List_of_OAuth_providers) pass your identity (and other information if you consent) to the site you are trying to access.  In our case, we just want to verify a user's email address so we can determine if they are allowed to see our site.  
 
