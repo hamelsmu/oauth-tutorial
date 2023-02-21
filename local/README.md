@@ -91,6 +91,8 @@ Preview your site at [http://localhost:4180](http://localhost:4180).
 
 There is a file named [emails/email_list.txt](./emails/email_list.txt) that contains a list of the email identities that are allowed to view your site.  Try misspelling your email on purpose and see what happens when you do a hard refresh after a few seconds.  Try changing it back.
 
+If you are curious how all this works, [read this](#how-does-this-work).
+
 # Next Lesson: Deploy It!
 
 Now that you have a minimal idea of how this works locally, you can proceed to host your static site on a VM or other hosted solution.  
