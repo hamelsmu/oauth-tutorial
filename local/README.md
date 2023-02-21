@@ -100,7 +100,7 @@ Now that you have a minimal idea of how this works locally, you can proceed to h
 In that lesson, we will show you how to:
 
 - Use a hosting provider to deploy your secure static site, **for free**.
-- Enable `https` and setup a custom domain.
+- Enable `https` and set up a custom domain.
 
 # Is this only for static sites?
 
