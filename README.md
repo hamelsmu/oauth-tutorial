@@ -14,9 +14,9 @@ Prerequisites: knowledge of Docker and familiarity with hosting static sites (li
 
 1. **[Running OAuth Locally](./local/README.md):** this runs a minimal static site locally, secured with the OAuth2 Proxy.  This allows you to gain an intuition of how things work before proceeding to the next step.
 
-2. **[Serving A Site](./simple/README.md):** You will host the same site you created locally, using a hosting service, **for free!**  You will also learn how to set up SSL for `https` with a custom domain.
+2. **[Serve The Private Site (For Free!)](./simple/README.md):** You will host the same site you created locally **for free!**  You will also learn how to set up SSL for `https` with a custom domain.
 
-3. **[Hosting on Kubernetes](./gke_k8s/README.md)** (Optional): Finally, you will deploy a website secured by OAuth on Kubernetes.  This assumes some experience with Kubernetes.
+3. **(Optional) [Hosting on Kubernetes](./gke_k8s/README.md)**: Finally, you will deploy a website secured by OAuth on Kubernetes.  This assumes some experience with Kubernetes.
 
 # FAQ
 
@@ -24,7 +24,7 @@ Prerequisites: knowledge of Docker and familiarity with hosting static sites (li
 
 2. **Does GitHub Pages have something like this?**: Only if you [purchase GitHub Enterprise Cloud](https://docs.github.com/en/enterprise-cloud@latest/pages/getting-started-with-github-pages/changing-the-visibility-of-your-github-pages-site) which is absurdly expensive if you want it solely for the purposes of securing a static site (> $100/month for just 5 users!).
 
-3. **Can't you do this with [Netlify](https://www.netlify.com/)?**: To do something similar on Netlify, you have to use [invite-only private sites](https://docs.netlify.com/visitor-access/identity/registration-login/#set-registration-preferences)](https://docs.netlify.com/visitor-access/identity/registration-login/#set-registration-preferences) (which is the closest thing to this) which triggers [identity pricing](https://www.netlify.com/pricing/#add-ons-identity), which means that **you need to pay over $99 per month if you have over 5 Active users!** That is ridiculous.
+3. **Can't you do this with [Netlify](https://www.netlify.com/)?**: To do something similar on Netlify, you have to use [invite-only private sites](https://docs.netlify.com/visitor-access/identity/registration-login/#set-registration-preferences), which triggers [identity pricing](https://www.netlify.com/pricing/#add-ons-identity), which means that **you need to pay over $99 per month if you have over 5 Active users!** That is ridiculous.
 
 ## How does this work?
 
