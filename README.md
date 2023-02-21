@@ -24,7 +24,7 @@ Prerequisites: knowledge of Docker and familiarity with hosting static sites (li
 
 # FAQ
 
-1. **Is this only for static sites?**  No! You can put applications behind the proxy too. See [this explanation](./local/README.md#is-this-only-for-static-sites).
+1. **Does the proxy only work for static sites?**  No! You can put applications behind the proxy too. See [this explanation](./local/README.md#is-this-only-for-static-sites).
 
 2. **Does GitHub Pages have something like this?**: Only if you [purchase GitHub Enterprise Cloud](https://docs.github.com/en/enterprise-cloud@latest/pages/getting-started-with-github-pages/changing-the-visibility-of-your-github-pages-site) which is absurdly expensive if you want it solely for the purposes of securing a static site (> $100/month for just 5 users!).
 
