@@ -1,6 +1,6 @@
 # Minimal OAuth Locally
 
-We will use the Oauth2 Proxy to make a static site private with minimal dependencies.  In this case, I'm going to serve a [Quarto](https://quarto.org/) site (my favorite static site generator), and secure it with an email whitelist (a [text file with emails](./emails/email_list.txt)). There are many other authorization schemes in addition to an email whitelist, [which you can read about here](https://oauth2-proxy.github.io/oauth2-proxy/docs/configuration/overview).
+We will use the Oauth2 Proxy to make a static site private with minimal dependencies.  In this case, I'm going to serve a [Quarto](https://quarto.org/) site (my favorite static site generator), and secure it with an email whitelist (a [text file with emails](./local/emails/email_list.txt)). There are many other authorization schemes in addition to an email whitelist, [which you can read about here](https://oauth2-proxy.github.io/oauth2-proxy/docs/configuration/overview).
 
 [This section](../README.md#how-does-this-work) describes how OAuth works in the context of this example.
 
