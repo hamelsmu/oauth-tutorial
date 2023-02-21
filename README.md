@@ -14,7 +14,7 @@ Prerequisites: knowledge of Docker and familiarity with hosting static sites (li
 
 1. **[Running OAuth Locally](./local/README.md):** this runs a minimal static site locally, secured with the OAuth2 Proxy.  This allows you to gain an intuition of how things work before proceeding to the next step.
 
-2. **[Serving A Site](./simple/README.md):** You will host the same site you created locally, using a few different hosting providers.  You will also learn how to set up SSL for `https` with a custom domain.
+2. **[Serving A Site](./simple/README.md):** You will host the same site you created locally, using a hosting service.  You will also learn how to set up SSL for `https` with a custom domain.
 
 3. **[Hosting on Kubernetes](./gke_k8s/README.md)** (Optional): Finally, you will deploy a website secured by OAuth on Kubernetes.  You will learn a more general pattern that will allow you to secure arbitrary web apps, not just static sites.  This assumes some experience with Kubernetes.
 
