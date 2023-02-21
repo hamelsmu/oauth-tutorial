@@ -55,7 +55,7 @@ You might not like serverless solutions.  They can often be harder to debug. How
 2. If you have a web server that handles SSL for you that forwards traffic to the OAuth2 Proxy, your OAuth2 proxy will likely receive `http` traffic from the web server.  Therefore, you might want to configure your `docker run` command accordingly:
 
 The below command assumes:
-- There are an `app/emails` and `app/site` directory in the current directory.
+- There is an `app/emails` and `app/site` directory in the current directory.
 - You have set the `OAUTH2_PROXY_COOKIE_SECRET`, `OAUTH2_PROXY_CLIENT_ID`, and `OAUTH2_PROXY_CLIENT_SECRET` environment variables.
 
 ```bash
