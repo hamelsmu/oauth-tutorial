@@ -106,4 +106,4 @@ As an advanced exercise, I show how to do this [same thing on Kubernetes](../gke
 
 Deploying this on Kubernetes is much more complicated, but is something I wanted to play with.
 
-**:point_right: [See Lesson 3: Deploying The OAuth2 Proxy On Kubernetes](../simple/README.md). :point_left:**
+**:point_right: [See Lesson 3: Deploying The OAuth2 Proxy On Kubernetes](../gke_k8s/README.md). :point_left:**
