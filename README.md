@@ -1,4 +1,6 @@
-# Make Static Sites Private With OAuth
+# Make Static Sites Private With OAuth For Free
+
+> Like GitHub Pages, but you choose who can see it without usernames & passwords
 
 Do you want to serve a static site semi-privately so only specific users can see it?  For example, you may want to host private docs or offer a paid course.  There are many complicated solutions that involve building a login flow and maintaining a database of usernames/passwords.  Thankfully, there is a much easier way with [Oauth2 Proxy](https://oauth2-proxy.github.io/oauth2-proxy/docs/).
 
