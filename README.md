@@ -1,6 +1,6 @@
 # Make Static Sites Private With OAuth For Free
 
-> Like GitHub Pages, but you choose who can see it without usernames & passwords
+Like GitHub Pages, but you choose who can see it without usernames & passwords :magic_wand: :tophat: :rabbit:	
 
 ## Background
 
