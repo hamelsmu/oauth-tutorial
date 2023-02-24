@@ -24,7 +24,7 @@ Create an [OAuth App](https://github.com/settings/applications/new), but fill ou
 
 _The `oauth2/callback` path on the Callback URL is something specific to the OAuth2 proxy. It is the [endpoint](https://oauth2-proxy.github.io/oauth2-proxy/docs/features/endpoints) this proxy uses to handle the callbacks from the OAuth provider._
 
-Make sure you store the `Client ID` and `Client Secret` into the enviornment variables `OAUTH2_PROXY_CLIENT_ID` and `OAUTH2_PROXY_COOKIE_SECRET`, respectively.
+Make sure you store the `Client ID` and `Client Secret` into the enviornment variables `OAUTH2_PROXY_CLIENT_ID` and `OAUTH2_PROXY_CLIENT_SECRET`, respectively.
 
 ### 3. Start The Proxy + WebServer Locally
 
