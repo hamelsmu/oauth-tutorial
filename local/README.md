@@ -35,8 +35,8 @@ Next, generate a cookie secret by running `python -c 'import os,base64; print(ba
 Next, run the following command from this directory:
 
 ```bash
-docker run -v $(PWD)/_site:/app \
-           -v $(PWD)/emails:/site_config \
+docker run -v $(pwd)/_site:/app \
+           -v $(pwd)/emails:/site_config \
            -p 4180:4180 \
            quay.io/oauth2-proxy/oauth2-proxy \
            --provider github \
