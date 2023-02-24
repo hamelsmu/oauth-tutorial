@@ -61,8 +61,8 @@ These flags are annotated below (but you have to copy and paste the above versio
 ```bash
 # COPY & PASTE THE ABOVE VERSION, THIS IS JUST AN EXPLANATION
 
-docker run -v $(PWD)/_site:/app \               # the directory with the static site
-           -v $(PWD)/emails:/site_config \      # the dirctory with the email list
+docker run -v $(pwd)/_site:/app \               # the directory with the static site
+           -v $(pwd)/emails:/site_config \      # the dirctory with the email list
            -p 4180:4180                         # bind the ports
            quay.io/oauth2-proxy/oauth2-proxy \  # the official docker image for Oauth2 proxy
            --provider github \                  # use GitHub as the Oauth provider
